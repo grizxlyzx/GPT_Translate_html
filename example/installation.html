@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Installing Sphinx &#8212; Sphinx documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="/_/static/css/badge_only.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx13.css?v=0e5dcb17" />
+    <script src="../_static/documentation_options.js?v=7d9a6084"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="/_/static/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="canonical" href="https://www.sphinx-doc.org/en/master/usage/installation.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Sphinx documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial: Build your first project" href="../tutorial/index.html" />
+    <link rel="prev" title="Getting Started" href="quickstart.html" />
+ 
+
+  
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="/_/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": true, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/doc/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "usage/installation", "programming_language": "py", "project": "sphinx", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx13", "user_analytics_code": "UA-72398003-3", "version": "master"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="/_/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+<div class="pageheader">
+  <a href="../index.html">
+    <img src="../_static/sphinx-logo.svg" alt="logo" />
+  </a>
+  <h1>Sphinx</h1>
+</div>
+
+<div class="related" role="navigation" aria-label="related navigation">
+  <h3>Navigation</h3>
+  <ul>
+    <li><a href="../index.html">Documentation</a> &raquo;</li>
+    <li class="nav-item nav-item-this"><a href="">Installing Sphinx</a></li>
+  </ul>
+</div>
+
+<div class="document">
+  <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+    <div class="sphinxsidebar-navigation__contents">
+      <h3>On this page</h3>
+      <ul>
+<li><a class="reference internal" href="#">Installing Sphinx</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#linux">Linux</a><ul>
+<li><a class="reference internal" href="#debian-ubuntu">Debian/Ubuntu</a></li>
+<li><a class="reference internal" href="#rhel-centos">RHEL, CentOS</a></li>
+<li><a class="reference internal" href="#other-distributions">Other distributions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#macos">macOS</a><ul>
+<li><a class="reference internal" href="#homebrew">Homebrew</a></li>
+<li><a class="reference internal" href="#macports">MacPorts</a></li>
+<li><a class="reference internal" href="#anaconda">Anaconda</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#windows">Windows</a><ul>
+<li><a class="reference internal" href="#chocolatey">Chocolatey</a></li>
+<li><a class="reference internal" href="#other-methods">Other Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installation-from-pypi">Installation from PyPI</a><ul>
+<li><a class="reference internal" href="#using-virtual-environments">Using virtual environments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#docker">Docker</a></li>
+<li><a class="reference internal" href="#installation-from-source">Installation from source</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    <div class="sphinxsidebar-navigation__pages">
+      <h3>Site navigation</h3>
+      <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial: Build your first project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Using Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Writing Sphinx Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../latex.html">LaTeX customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extdev/index.html">Sphinx Extensions API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Get support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/index.html">Contribute to Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Sphinx FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Sphinx authors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../man/index.html">Command-Line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions/index.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restructuredtext/index.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Projects using Sphinx</a></li>
+</ul>
+
+    </div>
+  </div>
+  <div class="body" role="main">
+    
+  <section id="installing-sphinx">
+<h1>Installing Sphinx<a class="headerlink" href="#installing-sphinx" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id17">Overview</a></p></li>
+<li><p><a class="reference internal" href="#linux" id="id18">Linux</a></p></li>
+<li><p><a class="reference internal" href="#macos" id="id19">macOS</a></p></li>
+<li><p><a class="reference internal" href="#windows" id="id20">Windows</a></p></li>
+<li><p><a class="reference internal" href="#installation-from-pypi" id="id21">Installation from PyPI</a></p></li>
+<li><p><a class="reference internal" href="#docker" id="id22">Docker</a></p></li>
+<li><p><a class="reference internal" href="#installation-from-source" id="id23">Installation from source</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>Sphinx is written in <a class="reference external" href="https://docs.python-guide.org/">Python</a> and supports Python 3.9+. It builds upon the
+shoulders of many third-party libraries such as <a class="reference external" href="https://docutils.sourceforge.io/">Docutils</a> and <a class="reference external" href="https://jinja.palletsprojects.com/">Jinja</a>,
+which are installed when Sphinx is installed.</p>
+</section>
+<section id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Link to this heading">¶</a></h2>
+<section id="debian-ubuntu">
+<h3>Debian/Ubuntu<a class="headerlink" href="#debian-ubuntu" title="Link to this heading">¶</a></h3>
+<p>Install either <code class="docutils literal notranslate"><span class="pre">python3-sphinx</span></code> using <strong class="command">apt-get</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-sphinx
+</pre></div>
+</div>
+<p>If it not already present, this will install Python for you.</p>
+</section>
+<section id="rhel-centos">
+<h3>RHEL, CentOS<a class="headerlink" href="#rhel-centos" title="Link to this heading">¶</a></h3>
+<p>Install <code class="docutils literal notranslate"><span class="pre">python-sphinx</span></code> using <strong class="command">yum</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>yum<span class="w"> </span>install<span class="w"> </span>python-sphinx
+</pre></div>
+</div>
+<p>If it not already present, this will install Python for you.</p>
+</section>
+<section id="other-distributions">
+<h3>Other distributions<a class="headerlink" href="#other-distributions" title="Link to this heading">¶</a></h3>
+<p>Most Linux distributions have Sphinx in their package repositories.  Usually
+the package is called <code class="docutils literal notranslate"><span class="pre">python3-sphinx</span></code>, <code class="docutils literal notranslate"><span class="pre">python-sphinx</span></code> or <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>.  Be
+aware that there are at least two other packages with <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> in their name:
+a speech recognition toolkit (<em>CMU Sphinx</em>) and a full-text search database
+(<em>Sphinx search</em>).</p>
+</section>
+</section>
+<section id="macos">
+<h2>macOS<a class="headerlink" href="#macos" title="Link to this heading">¶</a></h2>
+<p>Sphinx can be installed using <a class="reference external" href="https://brew.sh/">Homebrew</a>, <a class="reference external" href="https://www.macports.org/">MacPorts</a>, or as part of
+a Python distribution such as <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a>.</p>
+<section id="homebrew">
+<h3>Homebrew<a class="headerlink" href="#homebrew" title="Link to this heading">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>sphinx-doc
+</pre></div>
+</div>
+<p>For more information, refer to the <a class="reference external" href="https://formulae.brew.sh/formula/sphinx-doc">package overview</a>.</p>
+</section>
+<section id="macports">
+<h3>MacPorts<a class="headerlink" href="#macports" title="Link to this heading">¶</a></h3>
+<p>Install either <code class="docutils literal notranslate"><span class="pre">python3x-sphinx</span></code> using <strong class="command">port</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>port<span class="w"> </span>install<span class="w"> </span>py39-sphinx
+</pre></div>
+</div>
+<p>To set up the executable paths, use the <code class="docutils literal notranslate"><span class="pre">port</span> <span class="pre">select</span></code> command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>port<span class="w"> </span><span class="k">select</span><span class="w"> </span>--set<span class="w"> </span>python<span class="w"> </span>python39
+<span class="gp">$ </span>sudo<span class="w"> </span>port<span class="w"> </span><span class="k">select</span><span class="w"> </span>--set<span class="w"> </span>sphinx<span class="w"> </span>py39-sphinx
+</pre></div>
+</div>
+<p>For more information, refer to the <a class="reference external" href="https://www.macports.org/ports.php?by=library&amp;substr=py39-sphinx">package overview</a>.</p>
+</section>
+<section id="anaconda">
+<h3>Anaconda<a class="headerlink" href="#anaconda" title="Link to this heading">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>install<span class="w"> </span>sphinx
+</pre></div>
+</div>
+</section>
+</section>
+<section id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h2>
+<p>Sphinx can be install using <a class="reference external" href="https://chocolatey.org/">Chocolatey</a> or
+<a class="reference internal" href="#windows-other-method"><span class="std std-ref">installed manually</span></a>.</p>
+<section id="chocolatey">
+<h3>Chocolatey<a class="headerlink" href="#chocolatey" title="Link to this heading">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>choco<span class="w"> </span>install<span class="w"> </span>sphinx
+</pre></div>
+</div>
+<p>You would need to <a class="reference external" href="https://chocolatey.org/install">install Chocolatey</a>
+before running this.</p>
+<p>For more information, refer to the <a class="reference external" href="https://chocolatey.org/packages/sphinx/">chocolatey page</a>.</p>
+</section>
+<section id="other-methods">
+<span id="windows-other-method"></span><h3>Other Methods<a class="headerlink" href="#other-methods" title="Link to this heading">¶</a></h3>
+<p>Most Windows users do not have Python installed by default, so we begin with
+the installation of Python itself.  To check if you already have Python
+installed, open the <em>Command Prompt</em> (<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">⊞Win</kbd>-<kbd class="kbd docutils literal notranslate">r</kbd></kbd> and type <strong class="command">cmd</strong>).
+Once the command prompt is open, type <strong class="command">python --version</strong> and press
+Enter.  If Python is installed, you will see the version of Python printed to
+the screen.  If you do not have Python installed, refer to the <a class="reference external" href="https://docs.python-guide.org/">Hitchhikers
+Guide to Python’s</a> Python on Windows installation guides. You must install
+<a class="reference external" href="https://docs.python-guide.org/starting/install3/win/">Python 3</a>.</p>
+<p>Once Python is installed, you can install Sphinx using <strong class="command">pip</strong>.  Refer
+to the <a class="reference internal" href="#install-pypi"><span class="std std-ref">pip installation instructions</span></a> below for more
+information.</p>
+</section>
+</section>
+<section id="installation-from-pypi">
+<span id="install-pypi"></span><h2>Installation from PyPI<a class="headerlink" href="#installation-from-pypi" title="Link to this heading">¶</a></h2>
+<p>Sphinx packages are published on the <a class="reference external" href="https://pypi.org/project/Sphinx/">Python Package Index</a>.  The preferred tool for installing
+packages from <em>PyPI</em> is <strong class="command">pip</strong>.  This tool is provided with all modern
+versions of Python.</p>
+<p>On Linux or MacOS, you should open your terminal and run the following command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>sphinx
+</pre></div>
+</div>
+<p>On Windows, you should open <em>Command Prompt</em> (<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">⊞Win</kbd>-<kbd class="kbd docutils literal notranslate">r</kbd></kbd> and type
+<strong class="command">cmd</strong>) and run the same command.</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">C:\&gt;</span> pip install -U sphinx
+</pre></div>
+</div>
+<p>After installation, type <strong class="command">sphinx-build --version</strong> on the command
+prompt.  If everything worked fine, you will see the version number for the
+Sphinx package you just installed.</p>
+<p>Installation from <em>PyPI</em> also allows you to install the latest development
+release.  You will not generally need (or want) to do this, but it can be
+useful if you see a possible bug in the latest stable release.  To do this, use
+the <code class="docutils literal notranslate"><span class="pre">--pre</span></code> flag.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>--pre<span class="w"> </span>sphinx
+</pre></div>
+</div>
+<section id="using-virtual-environments">
+<h3>Using virtual environments<a class="headerlink" href="#using-virtual-environments" title="Link to this heading">¶</a></h3>
+<p>When installing Sphinx using pip,
+it is highly recommended to use <em>virtual environments</em>,
+which isolate the installed packages from the system packages,
+thus removing the need to use administrator privileges.
+To create a virtual environment in the <code class="docutils literal notranslate"><span class="pre">.venv</span></code> directory,
+use the following command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> – creating virtual environments</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that in some Linux distributions, such as Debian and Ubuntu,
+this might require an extra installation step as follows.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-venv
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Link to this heading">¶</a></h2>
+<p>Docker images for Sphinx are published on the <a class="reference external" href="https://hub.docker.com/">Docker Hub</a>.  There are two kind
+of images:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://hub.docker.com/r/sphinxdoc/sphinx">sphinxdoc/sphinx</a></p></li>
+<li><p><a class="reference external" href="https://hub.docker.com/r/sphinxdoc/sphinx-latexpdf">sphinxdoc/sphinx-latexpdf</a></p></li>
+</ul>
+<p>Former one is used for standard usage of Sphinx, and latter one is mainly used for
+PDF builds using LaTeX.  Please choose one for your purpose.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>sphinxdoc/sphinx-latexpdf contains TeXLive packages. So the image is very large
+(over 2GB!).</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>When using docker images, please use <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command to invoke sphinx
+commands.  For example, you can use following command to create a Sphinx
+project:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>/path/to/document:/docs<span class="w"> </span>sphinxdoc/sphinx<span class="w"> </span>sphinx-quickstart
+</pre></div>
+</div>
+<p>And you can use the following command to build HTML document:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>/path/to/document:/docs<span class="w"> </span>sphinxdoc/sphinx<span class="w"> </span>make<span class="w"> </span>html
+</pre></div>
+</div>
+</div>
+<p>For more details, please read <a class="reference external" href="https://hub.docker.com/r/sphinxdoc/sphinx">README file</a> of docker images.</p>
+</section>
+<section id="installation-from-source">
+<h2>Installation from source<a class="headerlink" href="#installation-from-source" title="Link to this heading">¶</a></h2>
+<p>You can install Sphinx directly from a clone of the <a class="reference external" href="https://github.com/sphinx-doc/sphinx">Git repository</a>.  This
+can be done either by cloning the repo and installing from the local clone, on
+simply installing directly via <strong class="command">git</strong>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/sphinx-doc/sphinx
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>sphinx
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/sphinx-doc/sphinx
+</pre></div>
+</div>
+<p>You can also download a snapshot of the Git repo in either <a class="reference external" href="https://github.com/sphinx-doc/sphinx/archive/master.tar.gz">tar.gz</a> or
+<a class="reference external" href="https://github.com/sphinx-doc/sphinx/archive/master.zip">zip</a> format.  Once downloaded and extracted, these can be installed with
+<strong class="command">pip</strong> as above.</p>
+</section>
+</section>
+
+
+  </div>
+</div>
+<div class="footer" role="contentinfo">
+  
+    &#169; Copyright 2007-2024, the Sphinx developers.
+  Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.0.
+</div>
+  </body>
+</html>
